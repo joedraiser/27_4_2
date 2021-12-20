@@ -61,6 +61,11 @@ public:
     {
         return *this;
     }
+
+    void displayRectangleParams()
+    {
+        std::cout << "Rectangle with " << width << " width and " << length << " length\n";
+    }
 };
 
 class Circle : public Figure
@@ -126,16 +131,41 @@ public:
 int main()
 {
     std::string input;
-    int attr, color;
+    int attr1, attr2, color;
 
-    coord center, ;
+    coord center;
 
     do
     {
         std::cout << "Input command: ";
+        std::cin >> input;
         if(input=="circle")
         {
-            std::cin >> center.x >> center.y >> attr >> color;
+            std::cout << "Input center coordinates of figure x, y, radius and color(0-none, 1-red, 2-blue, 3-green): ";
+            std::cin >> center.x >> center.y >> attr1 >> color;
+            std::cout << "Circle has " << Circle (center.x, center.y, attr1, (colors)color).area() << " area and has ";
+            Circle (center.x, center.y, attr1, (colors)color).rectangleFind().displayRectangleParams();
+        }
+        else if(input=="square")
+        {
+            std::cout << "Input center coordinates of figure x, y, edge and color(0-none, 1-red, 2-blue, 3-green): ";
+            std::cin >> center.x >> center.y >> attr1 >> color;
+            std::cout << "Square has " << Square (center.x, center.y, attr1, (colors)color).area() << " area and has ";
+            Square (center.x, center.y, attr1, (colors)color).rectangleFind().displayRectangleParams();
+        }
+        else if(input=="triangle")
+        {
+            std::cout << "Input center coordinates of figure x, y, edge and color(0-none, 1-red, 2-blue, 3-green): ";
+            std::cin >> center.x >> center.y >> attr1 >> color;
+            std::cout << "Triangle has " << Triangle (center.x, center.y, attr1, (colors)color).area() << " area and has ";
+            Triangle (center.x, center.y, attr1, (colors)color).rectangleFind().displayRectangleParams();
+        }
+        else if(input=="rectangle")
+        {
+            std::cout << "Input center coordinates of figure x, y, width, length and color(0-none, 1-red, 2-blue, 3-green): ";
+            std::cin >> center.x >> center.y >> attr1 >> attr2 >> color;
+            std::cout << "Rectangle has " << Rectangle (center.x, center.y, attr1, attr2, (colors)color).area() << " area and has ";
+            Rectangle (center.x, center.y, attr1, (colors)color).rectangleFind().displayRectangleParams();
         }
     }
     while(input!="exit");
